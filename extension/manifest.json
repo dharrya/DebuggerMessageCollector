@@ -1,0 +1,19 @@
+{
+	"name": "Debugger Errors Collector",
+	"manifest_version": 2,
+	"version": "0.1",
+	"content_scripts": [
+		{
+			"all_frames": true,
+			"js": [ "content.js" ],
+			"matches": [ "http://*/*", "https://*/*", "file://*/*" ],
+			"run_at": "document_start"
+		}
+	],
+	"permissions": [ "debugger", "tabs" ],
+	"background": {
+    	"scripts": [ "jquery.min.js", "background.js" ]
+    },
+    "web_accessible_resources": [ "injected.js" ],
+	"description": "Collect Debbuger messages (e.g. JavaScript or Network errors)"
+}
